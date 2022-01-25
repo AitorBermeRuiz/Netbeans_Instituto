@@ -18,7 +18,7 @@ import java.sql.*;
 
 public class Ej1 {
     public static void main(String[] args) {
-        try {
+       /* try {
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn =DriverManager.getConnection("jdbc:mysql://localhost/instituto","root","");
@@ -32,7 +32,7 @@ public class Ej1 {
             Logger.getLogger(Ej1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Ej1.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
     }
     
