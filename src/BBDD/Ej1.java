@@ -33,7 +33,7 @@ public class Ej1 {
                     + "FOREIGN KEY (COD) REFERENCES  ASIGNATURAS (COD))";
             st.execute(tabla);
             
-            ResultSet rs=st.executeQuery("SELECT * FROM `notas`;");
+            ResultSet rs=st.executeQuery("SELECT * FROM notas;");
             while(rs.next()){
                 String Mat = rs.getString(1);
                 String COD = rs.getString(2);
@@ -41,7 +41,7 @@ public class Ej1 {
                 int Nota2 = rs.getInt(4);
                 int Nota3 = rs.getInt(5);
                 int NotaMedia = (Nota1+Nota2+Nota3)/3;
-                String x2 = ("INSERT INTO notasfinales VALUES ("rs.getString(1)","rs.getString(2)","NotaMedia");");
+                String x2 = "INSERT INTO notasfinales VALUES ('"+Mat+"',"+COD+","+NotaMedia+")";
                 st.executeUpdate(x2);
             }
             
