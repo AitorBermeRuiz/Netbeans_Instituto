@@ -33,7 +33,9 @@ public class Ej1 {
                     + "FOREIGN KEY (COD) REFERENCES  ASIGNATURAS (COD))";
             st.execute(tabla);
             
-            ResultSet rs=st.executeQuery("SELECT * FROM notas;");
+            Statement st2 = conn.createStatement();
+            ResultSet rs=st2.executeQuery("SELECT * FROM notas;");
+            Statement st3 = conn.createStatement();
             while(rs.next()){
                 String Mat = rs.getString(1);
                 String COD = rs.getString(2);
@@ -42,16 +44,17 @@ public class Ej1 {
                 int Nota3 = rs.getInt(5);
                 int NotaMedia = (Nota1+Nota2+Nota3)/3;
                 String x2 = "INSERT INTO notasfinales VALUES ('"+Mat+"',"+COD+","+NotaMedia+")";
-                st.executeUpdate(x2);
+                st3.executeUpdate(x2);
             }
             
-            /*String xx = ("SELECT t4.APEL_NOM,t1.NOMBRE,t4.nota1,t4.nota2,t4.nota3 from asignaturas t1 LEFT JOIN ( select t2.MAT,t2.APEL_NOM,t3.COD,t3.NOTA1,t3.NOTA2,t3.NOTA3 from alumnos t2 join notas t3 on t2.MAT = t3.Mat)t4 on t1.COD = t4.COD");
-            rs = st.executeQuery(xx);
-            System.out.println("Nombre alumno \t Nombre asignatura  nota1  nota2  nota3");
+            String xx = ("select t6.APEL_NOM,t5.NOMBRE,t6.nota1, t6.nota2,t6.nota3,t6.notamedia from asignaturas t5 INNER JOIN(select t4.COD,t1.APEL_NOM,t4.NOTA1,t4.NOTA2,t4.NOTA3,t4.notamedia from alumnos t1 join (SELECT t2.*,t3.NotaMedia from notas t2 JOIN notasfinales t3 on t2.COD = t3.COD)t4 on t1.MAT = t4.Mat)t6 on t5.COD = t6.COD;");
+            Statement st4 = conn.createStatement();
+            rs = st4.executeQuery(xx);
+            System.out.println("Nombre alumno Nombre asignatura nota1  nota2  nota3 notamedia");
             while (rs.next()) {   
                 
-                System.out.println(rs.getString(1)+"\t "+rs.getString(2)+"\t "+rs.getInt(3)+" "+rs.getInt(4)+" "+rs.getInt(5));
-            }*/
+                System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getInt(4)+" "+rs.getInt(5)+" "+rs.getInt(6));
+            }
             st.close();conn.close();
             
             
