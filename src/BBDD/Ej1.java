@@ -1,4 +1,4 @@
-/*
+/* nueva brenchLKJHDFKLH DSAODHF OIU DFS OIDS
 Una vez creada la base de datos hacer un programa en Java que cree una nueva
  tabla llamada NotasFinales que tendrá la siguiente estructura:
  NotasFinales(Mat,Cod,NotaMedia);
@@ -19,7 +19,7 @@ import java.sql.*;
 public class Ej1 {
     public static void main(String[] args) {
         try {
-
+               System.out.println("hola");
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn =DriverManager.getConnection("jdbc:mysql://localhost/instituto","root","");
             Statement st=conn.createStatement();
