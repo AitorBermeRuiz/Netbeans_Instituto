@@ -1,0 +1,7 @@
+lunes;12:48;23;
+martes;10:37;13;
+miércoles;22:26;14;
+jueves;13:06;26;
+viernes;20:24;07;
+sábado;06:39;08;
+domingo;09:52;34;
